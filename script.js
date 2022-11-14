@@ -15,6 +15,9 @@ class Enemy {
     this.x++;
     this.y++;
   }
+  draw() {
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
 }
 
 const enemy1 = new Enemy();
@@ -22,6 +25,7 @@ const enemy1 = new Enemy();
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   enemy1.update();
+  enemy1.draw();
   ctx.fillRect(enemy1.x, enemy1.y, enemy1.width, enemy1.height);
   requestAnimationFrame(animate);
 }

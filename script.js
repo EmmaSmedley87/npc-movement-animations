@@ -18,16 +18,18 @@ class Enemy {
     this.spriteHeight = 155;
     this.width = this.spriteWidth / 2.5;
     this.height = this.spriteHeight / 2.5;
+    this.frame = 4;
   }
   update() {
     this.x += this.speed;
     this.y += this.speed;
+    this.frame > 4 ? (this.frame = 0) : this.frame++;
   }
   draw() {
     ctx.strokeRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
       enemyImage,
-      0,
+      this.frame * this.spriteWidth,
       0,
       this.spriteWidth,
       this.spriteHeight,

@@ -20,7 +20,7 @@ class Enemy {
     this.width = this.spriteWidth / 2.5;
     this.height = this.spriteHeight / 2.5;
     this.frame = 0;
-    this.flapSpeed = Math.random() * 3 + 1;
+    this.flapSpeed = Math.floor(Math.random() * 3 + 1);
   }
   update() {
     this.x += this.speed;

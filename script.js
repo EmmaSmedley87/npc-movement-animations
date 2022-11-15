@@ -3,15 +3,15 @@ const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 CANVAS_WIDTH = canvas.width = 500;
 CANVAS_HEIGHT = canvas.height = 1000;
-const numberOfEnemies = 100;
+const numberOfEnemies = 300;
 const enemiesArray = [];
 
-const enemyImage = new Image();
-enemyImage.src = "images/enemy1.png";
 let gameFrame = 0;
 
 class Enemy {
   constructor() {
+    this.image = new Image();
+    this.image.src = "images/enemy1.png";
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
     this.speed = Math.random() * 4 - 2;
@@ -31,9 +31,8 @@ class Enemy {
     }
   }
   draw() {
-    ctx.strokeRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
-      enemyImage,
+      this.image,
       this.frame * this.spriteWidth,
       0,
       this.spriteWidth,
